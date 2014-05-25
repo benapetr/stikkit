@@ -5,7 +5,7 @@ Priority: optional
 Standards-Version: 3.9.2
 Build-Depends: debhelper (>= 9), g++, libcurl-dev
 
-Package: hithere
+Package: stikkit
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: uploads to stikked based pastebin websites
