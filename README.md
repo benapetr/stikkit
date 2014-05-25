@@ -1,7 +1,7 @@
 stikkit
 =======
 
-command line tool to upload paste to stikked based pastebins
+command line tool to upload paste to [stikked](https://github.com/claudehohl/Stikked) based pastebins
 
 Features
 ========
