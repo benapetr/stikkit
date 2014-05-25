@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
     }
     Stikkit::Configuration::URL += "/api/create";
     std::string line;
-    while (std::cin >> line)
+    while (std::getLine(std::cin, line))
         Stikkit::Configuration::Source += line;
     if (Stikkit::Configuration::Source.size() < 1)
     {
@@ -88,6 +88,7 @@ int main(int argc, char *argv[])
     {
         readBuffer.clear();
         string post = "text=";
+        cerr << Stikkit::Configuration::Source << endl;
         post += curl_easy_escape(curl, Stikkit::Configuration::Source.c_str(), Stikkit::Configuration::Source.length());
         if (Stikkit::Configuration::Author.length() > 0)
         {
