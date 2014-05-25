@@ -24,7 +24,7 @@ string Configuration::URL = "";
 string Configuration::Expiry = "60";
 bool Configuration::Private = false;
 string Configuration::Author = "";
-string Configuration::Version = "1.0.2";
+string Configuration::Version = "1.0.3";
 string Configuration::Title = "";
 string Configuration::Home = "";
 string Configuration::DefaultURL = "";
@@ -59,6 +59,11 @@ void Configuration::Init()
             Configuration::DefaultURL = line;
         }
         f.close();
+    }
+    if (Configuration::Author.length() < 1)
+    {
+        // we don't have any author here! let's get it from passwd
+        Configuration::Author = pw->pw_name;
     }
 }
 
