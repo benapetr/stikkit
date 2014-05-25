@@ -22,6 +22,7 @@ unsigned int Configuration::Verbosity = 0;
 string Configuration::Source = "";
 string Configuration::URL = "";
 string Configuration::Expiry = "60";
+bool Configuration::Private = false;
 string Configuration::Author = "";
 string Configuration::Version = "1.0.0";
 string Configuration::Title = "";

@@ -31,6 +31,7 @@ namespace Stikkit
             static string Version;
             static string Expiry;
             static string DefaultURL;
+            static bool Private;
             static string Home;
     };
 }

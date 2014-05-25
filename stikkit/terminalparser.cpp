@@ -106,9 +106,12 @@ void TerminalParser::DisplayHelp()
 
     cout << "Stikkit - open source pastebin uploader for Stikked\n\n"\
             "Parameters:\n"\
-            "  -a <name>:       Specify author name\n"\
+            "  -a <name>:       Specify author name by default the current OS username is used\n"\
             "  -b <url>:        Specify URL of Stikked server\n"\
             "  -v:              Increases verbosity\n"\
+            "  -t <title>:      Set a title for a paste\n"\
+            "  -p:              Mark a paste as private (not visible in recent pastes)\n"\
+            "  -e <minutes>:    Set expiry in minutes, parameter needs to be a number\n"\
             "  --version:       Display a version\n"\
             "  -h | --help:     Display this help\n\n"\
             "Note: every argument in [brackets] is optional\n"\

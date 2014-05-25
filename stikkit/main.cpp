@@ -91,6 +91,15 @@ int main(int argc, char *argv[])
         post += curl_easy_escape(curl, Stikkit::Configuration::Source.c_str(), Stikkit::Configuration::Source.length());
         post += "&name=";
         post += curl_easy_escape(curl, Stikkit::Configuration::Author.c_str(), Stikkit::Configuration::Author.length());
+        if (Stikkit::Configuration::Title.length() > 0)
+        {
+            post += "&title=";
+            post += curl_easy_escape(curl, Stikkit::Configuration::Title.c_str(), Stikkit::Configuration::Title.length());
+        }
+        if (Stikkit::Configuration::Private)
+            post += "&private=1";
+        if (Stikkit::Configuration::Expiry != "0")
+            post += "&expire=" + Stikkit::Configuration::Expiry;
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(curl, CURLOPT_URL, Stikkit::Configuration::URL.c_str());
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post.c_str());
