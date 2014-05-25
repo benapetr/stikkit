@@ -88,7 +88,6 @@ int main(int argc, char *argv[])
     {
         readBuffer.clear();
         string post = "text=";
-        cerr << Stikkit::Configuration::Source << endl;
         post += curl_easy_escape(curl, Stikkit::Configuration::Source.c_str(), Stikkit::Configuration::Source.length());
         if (Stikkit::Configuration::Author.length() > 0)
         {
