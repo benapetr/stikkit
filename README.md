@@ -30,10 +30,9 @@ Usage
 ```
 stikkit -b url
 # now type text and hit ctrl+d to exit
-```
-
 cat file | stikkit -b url
 echo "Hello world" | stikkit
+```
 
 url is an url to stikked server for example, if your server is http://something.blah/stikked and your api is http://something.blah/stikked/api then use http://something.blah/stikked as parameter to -b
 
