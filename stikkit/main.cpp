@@ -10,7 +10,6 @@
 
 #include <iostream>
 #include <string>
-#include <unistd.h>
 #include <curl/curl.h>
 #include "configuration.hpp"
 #include "terminalparser.hpp"
@@ -37,15 +36,8 @@ int main(int argc, char *argv[])
     delete t;
     if (!Stikkit::Configuration::Author.length())
     {
-        char buffer[200];
-        if (getlogin_r(buffer, 200))
-        {
-            Stikkit::Configuration::Author = buffer;
-        } else
-        {
-            // we need to provide some author name otherwise stikked will not display anything or some random characters there
-            Stikkit::Configuration::Author = "Unknown";
-        }
+        // we need to provide some author name otherwise stikked will not display anything or some random characters there
+        Stikkit::Configuration::Author = "Unknown";
     }
     if (!Stikkit::Configuration::URL.length())
     {
