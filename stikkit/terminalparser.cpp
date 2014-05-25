@@ -107,10 +107,7 @@ bool TerminalParser::Parse()
         }
         if (!valid)
         {
-            if (!this->Silent)
-            {
-                cerr << "This parameter isn't valid: " << text << endl;
-            }
+            cerr << "This parameter isn't valid: " << text << endl;
             return true;
         }
         x++;
