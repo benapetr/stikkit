@@ -62,7 +62,30 @@ bool TerminalParser::Parse()
                         cerr << "Parameter -b requires an argument for it to work!" << endl;
                         return true;
                     }
+                } else if (text.at(0) == 't')
+                {
+                    if (this->argc > x + 1 && !this->argv[x + 1][0] != '-')
+                    {
+                        x++;
+                        Configuration::Title = this->argv[x];
+                    } else
+                    {
+                        cerr << "Parameter -b requires an argument for it to work!" << endl;
+                        return true;
+                    }
+                } else if (text.at(0) == 'e')
+                {
+                    if (this->argc > x + 1 && !this->argv[x + 1][0] != '-')
+                    {
+                        x++;
+                        Configuration::Expiry = this->argv[x];
+                    } else
+                    {
+                        cerr << "Parameter -b requires an argument for it to work!" << endl;
+                        return true;
+                    }
                 }
+
                 text = text.substr(1);
             }
             valid = true;
@@ -95,6 +118,9 @@ bool TerminalParser::ParseChar(char x)
         case 'h':
             this->DisplayHelp();
             return true;
+        case 'p':
+            Configuration::Private = true;
+            return false;
     }
     return false;
 }
@@ -106,7 +132,8 @@ void TerminalParser::DisplayHelp()
 
     cout << "Stikkit - open source pastebin uploader for Stikked\n\n"\
             "Parameters:\n"\
-            "  -a <name>:       Specify author name by default the current OS username is used\n"\
+            "  -a <name>:       Specify author name by default the current\n"\
+            "                   OS username is used\n"\
             "  -b <url>:        Specify URL of Stikked server\n"\
             "  -v:              Increases verbosity\n"\
             "  -t <title>:      Set a title for a paste\n"\
