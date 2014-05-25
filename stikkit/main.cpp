@@ -41,6 +41,10 @@ int main(int argc, char *argv[])
         if (getlogin_r(buffer, 200))
         {
             Stikkit::Configuration::Author = buffer;
+        } else
+        {
+            // we need to provide some author name otherwise stikked will not display anything or some random characters there
+            Stikkit::Configuration::Author = "Unknown";
         }
     }
     if (!Stikkit::Configuration::URL.length())
@@ -75,7 +79,7 @@ int main(int argc, char *argv[])
     Stikkit::Configuration::URL += "/api/create";
     std::string line;
     while (getline(std::cin, line))
-        Stikkit::Configuration::Source += line;
+        Stikkit::Configuration::Source += line + "\n";
     if (Stikkit::Configuration::Source.size() < 1)
     {
         Stikkit::Syslog::Log("Refusing to upload empty string");
