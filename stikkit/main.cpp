@@ -111,7 +111,10 @@ int main(int argc, char *argv[])
         res = curl_easy_perform(curl);
         /* Check for errors */
         if(res != CURLE_OK)
+        {
             cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
+            return 12;
+        }
         cout << "Successfully pastebined to: " << readBuffer;
         curl_easy_cleanup(curl);
     } else
