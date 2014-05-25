@@ -106,6 +106,8 @@ void TerminalParser::DisplayHelp()
 
     cout << "Stikkit - open source pastebin uploader for Stikked\n\n"\
             "Parameters:\n"\
+            "  -a <name>:       Specify author name\n"\
+            "  -b <url>:        Specify URL of Stikked server\n"\
             "  -v:              Increases verbosity\n"\
             "  --version:       Display a version\n"\
             "  -h | --help:     Display this help\n\n"\

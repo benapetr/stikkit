@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <string>
+#include <unistd.h>
 #include <curl/curl.h>
 #include "configuration.hpp"
 #include "terminalparser.hpp"
@@ -26,6 +27,7 @@ static size_t WriteCallback(void *contents, size_t size, size_t nmemb)
 
 int main(int argc, char *argv[])
 {
+    Stikkit::Configuration::Init();
     Stikkit::TerminalParser *t = new Stikkit::TerminalParser(argc, argv);
     if (t->Parse())
     {
@@ -33,10 +35,42 @@ int main(int argc, char *argv[])
         return 0;
     }
     delete t;
+    if (!Stikkit::Configuration::Author.length())
+    {
+        char buffer[200];
+        if (getlogin_r(buffer, 200))
+        {
+            Stikkit::Configuration::Author = buffer;
+        }
+    }
     if (!Stikkit::Configuration::URL.length())
     {
-        Stikkit::Syslog::ErrorLog("No URL to stikked server provided, use stikkit -b <URL>");
-        return 20;
+        if (Stikkit::Configuration::DefaultURL.length() > 0)
+        {
+            Stikkit::Configuration::URL = Stikkit::Configuration::DefaultURL;
+        } else
+        {
+            Stikkit::Syslog::ErrorLog("No URL to stikked server provided, use stikkit -b <URL>");
+            return 20;
+        }
+    }
+    if (!Stikkit::Configuration::DefaultURL.length())
+    {
+        std::cout << "There is no default URL stored in configuration files, do you want to set " <<
+                     Stikkit::Configuration::URL << " as a default URL? (y/n)";
+        string response;
+        std::cin >> response;
+        if (response == "y" || response == "n")
+        {
+            if (response[0] == 'y')
+            {
+                Stikkit::Configuration::Store();
+            }
+        } else
+        {
+            Stikkit::Syslog::ErrorLog("Invalid option!");
+            return 2;
+        }
     }
     Stikkit::Configuration::URL += "/api/create";
     std::string line;

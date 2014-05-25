@@ -20,12 +20,18 @@ namespace Stikkit
     class Configuration
     {
         public:
+            static void Init();
+            static void Store();
             static unsigned int Verbosity;
             static string URL;
             static string Source;
             static string Input;
             static string Author;
+            static string Title;
             static string Version;
+            static string Expiry;
+            static string DefaultURL;
+            static string Home;
     };
 }
 
