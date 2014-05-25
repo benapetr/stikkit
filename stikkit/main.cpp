@@ -8,9 +8,12 @@
 //MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //GNU General Public License for more details.
 
+#include <cstring>
 #include <iostream>
+#include <errno.h>
 #include <string>
 #include <curl/curl.h>
+#include <fstream>
 #include "configuration.hpp"
 #include "terminalparser.hpp"
 #include "syslog.hpp"
@@ -70,8 +73,23 @@ int main(int argc, char *argv[])
     }
     Stikkit::Configuration::URL += "/api/create";
     std::string line;
-    while (getline(std::cin, line))
-        Stikkit::Configuration::Source += line + "\n";
+    if (Stikkit::Configuration::Input.length())
+    {
+        // user wants to upload some file
+        std::ifstream infile(Stikkit::Configuration::Input.c_str());
+        if (!infile)
+        {
+            cerr << "File could not be opened!" << endl;
+            cerr << "Error code: " << strerror(errno) << endl;
+            return 61;
+        }
+        while (std::getline(infile, line))
+            Stikkit::Configuration::Source += line + "\n";
+    } else
+    {
+        while (getline(std::cin, line))
+            Stikkit::Configuration::Source += line + "\n";
+    }
     if (Stikkit::Configuration::Source.size() < 1)
     {
         Stikkit::Syslog::Log("Refusing to upload empty string");

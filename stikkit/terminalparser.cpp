@@ -70,7 +70,7 @@ bool TerminalParser::Parse()
                         Configuration::Title = this->argv[x];
                     } else
                     {
-                        cerr << "Parameter -b requires an argument for it to work!" << endl;
+                        cerr << "Parameter -t requires an argument for it to work!" << endl;
                         return true;
                     }
                 } else if (text.at(0) == 'e')
@@ -81,11 +81,21 @@ bool TerminalParser::Parse()
                         Configuration::Expiry = this->argv[x];
                     } else
                     {
-                        cerr << "Parameter -b requires an argument for it to work!" << endl;
+                        cerr << "Parameter -e requires an argument for it to work!" << endl;
+                        return true;
+                    }
+                } else if (text.at(0) == 'i')
+                {
+                    if (this->argc > x + 1 && !this->argv[x + 1][0] != '-')
+                    {
+                        x++;
+                        Configuration::Input = this->argv[x];
+                    } else
+                    {
+                        cerr << "Parameter -i requires an argument for it to work!" << endl;
                         return true;
                     }
                 }
-
                 text = text.substr(1);
             }
             valid = true;
@@ -135,6 +145,7 @@ void TerminalParser::DisplayHelp()
             "  -a <name>:       Specify author name by default the current\n"\
             "                   OS username is used\n"\
             "  -b <url>:        Specify URL of Stikked server\n"\
+            "  -i <file>:       Upload a content of specified file\n"\
             "  -v:              Increases verbosity\n"\
             "  -t <title>:      Set a title for a paste\n"\
             "  -p:              Mark a paste as private (not visible in recent pastes)\n"\

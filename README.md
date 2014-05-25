@@ -11,6 +11,18 @@ Features
 * Automatically url encodes all data
 * Automatically figure out author name if not provided explicitly
 
+Installing on debian or ubuntu
+==============================
+
+Just add ppa:
+```
+sudo add-apt-repository ppa:benapetr/misc
+sudo apt-get update
+sudo apt-get install stikkit
+```
+
+That's all
+
 Building on linux
 =================
 
@@ -30,10 +42,9 @@ Usage
 ```
 stikkit -b url
 # now type text and hit ctrl+d to exit
-```
-
 cat file | stikkit -b url
 echo "Hello world" | stikkit
+```
 
 url is an url to stikked server for example, if your server is http://something.blah/stikked and your api is http://something.blah/stikked/api then use http://something.blah/stikked as parameter to -b
 
