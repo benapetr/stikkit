@@ -49,3 +49,10 @@ echo "Hello world" | stikkit
 url is an url to stikked server for example, if your server is http://something.blah/stikked and your api is http://something.blah/stikked/api then use http://something.blah/stikked as parameter to -b
 
 The url parameter can be stored to configuration file (stikkit will ask you in case there is none in config file)
+
+Tips
+=====
+
+Do you have a server and want to setup default pastebin site for all users in system?
+
+Create /etc/stikkit/url which contains the url of default pastebin site. Users will be able to override it, but by default everyone on system will use this
