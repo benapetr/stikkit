@@ -9,6 +9,7 @@ Building on linux
 Checkout this repository
 ```
 cd stikkit
+./configure
 make
 ```
 
