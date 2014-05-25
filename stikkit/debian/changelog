@@ -1,3 +1,15 @@
+stikkit (1.0.1ppa2) precise; urgency=medium
+
+  * fix
+
+ -- Petr Bena <benapetr@gmail.com>  Sun, 25 May 2014 16:39:23 +0200
+
+stikkit (1.0.1ppa1) precise; urgency=medium
+
+  * new version
+
+ -- Petr Bena <benapetr@gmail.com>  Sun, 25 May 2014 16:30:49 +0200
+
 stikkit (1.0.0ppa2) precise; urgency=medium
 
   * dep
