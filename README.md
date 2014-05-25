@@ -17,7 +17,7 @@ Building on linux
 Checkout this repository
 ```
 cd stikkit
-./configure
+cmake .
 make
 make install
 ```
