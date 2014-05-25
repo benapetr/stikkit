@@ -1,0 +1,12 @@
+Source: stikkit
+Maintainer: Petr Bena <benapetr@gmail.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 9), g++, libcurl-dev
+
+Package: hithere
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: uploads to stikked based pastebin websites
+ stikkit is an uploader to stikked based pastebin sites, it allows users to easily upload pastes from terminal
