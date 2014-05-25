@@ -11,6 +11,18 @@ Features
 * Automatically url encodes all data
 * Automatically figure out author name if not provided explicitly
 
+Installing on debian or ubuntu
+==============================
+
+Just add ppa:
+```
+sudo add-apt-repository ppa:benapetr/misc
+sudo apt-get update
+sudo apt-get install stikkit
+```
+
+That's all
+
 Building on linux
 =================
 
