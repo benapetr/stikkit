@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
     }
     Stikkit::Configuration::URL += "/api/create";
     std::string line;
-    while (std::cin >> line)
+    while (getline(std::cin, line))
         Stikkit::Configuration::Source += line;
     if (Stikkit::Configuration::Source.size() < 1)
     {
@@ -89,8 +89,11 @@ int main(int argc, char *argv[])
         readBuffer.clear();
         string post = "text=";
         post += curl_easy_escape(curl, Stikkit::Configuration::Source.c_str(), Stikkit::Configuration::Source.length());
-        post += "&name=";
-        post += curl_easy_escape(curl, Stikkit::Configuration::Author.c_str(), Stikkit::Configuration::Author.length());
+        if (Stikkit::Configuration::Author.length() > 0)
+        {
+            post += "&name=";
+            post += curl_easy_escape(curl, Stikkit::Configuration::Author.c_str(), Stikkit::Configuration::Author.length());
+        }
         if (Stikkit::Configuration::Title.length() > 0)
         {
             post += "&title=";
@@ -108,7 +111,10 @@ int main(int argc, char *argv[])
         res = curl_easy_perform(curl);
         /* Check for errors */
         if(res != CURLE_OK)
+        {
             cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
+            return 12;
+        }
         cout << "Successfully pastebined to: " << readBuffer;
         curl_easy_cleanup(curl);
     } else
