@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
     }
     Stikkit::Configuration::URL += "/api/create";
     std::string line;
-    while (std::getLine(std::cin, line))
+    while (getline(std::cin, line))
         Stikkit::Configuration::Source += line;
     if (Stikkit::Configuration::Source.size() < 1)
     {
