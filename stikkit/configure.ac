@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT(stikkit, 1.0.0, benapetr@gmail.com)
+AC_INIT(stikkit, 1.0.1, benapetr@gmail.com)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([configuration.cpp])
 

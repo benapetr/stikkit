@@ -89,8 +89,11 @@ int main(int argc, char *argv[])
         readBuffer.clear();
         string post = "text=";
         post += curl_easy_escape(curl, Stikkit::Configuration::Source.c_str(), Stikkit::Configuration::Source.length());
-        post += "&name=";
-        post += curl_easy_escape(curl, Stikkit::Configuration::Author.c_str(), Stikkit::Configuration::Author.length());
+        if (Stikkit::Configuration::Author.length() > 0)
+        {
+            post += "&name=";
+            post += curl_easy_escape(curl, Stikkit::Configuration::Author.c_str(), Stikkit::Configuration::Author.length());
+        }
         if (Stikkit::Configuration::Title.length() > 0)
         {
             post += "&title=";
