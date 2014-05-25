@@ -140,9 +140,6 @@ bool TerminalParser::ParseChar(char x)
 
 void TerminalParser::DisplayHelp()
 {
-    if (this->Silent)
-        return;
-
     cout << "Stikkit - open source pastebin uploader for Stikked\n\n"\
             "Parameters:\n"\
             "  -a <name>:       Specify author name by default the current\n"\
