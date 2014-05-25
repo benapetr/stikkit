@@ -24,9 +24,10 @@ string Configuration::URL = "";
 string Configuration::Expiry = "60";
 bool Configuration::Private = false;
 string Configuration::Author = "";
-string Configuration::Version = "1.0.4";
+string Configuration::Version = "1.0.5";
 string Configuration::Title = "";
 string Configuration::Home = "";
+bool Configuration::NoExtras = false;
 string Configuration::Input = "";
 string Configuration::DefaultURL = "";
 

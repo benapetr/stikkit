@@ -23,7 +23,6 @@ namespace Stikkit
             bool Parse();
             bool ParseChar(char x);
             void DisplayHelp();
-            bool Silent;
         private:
             int argc;
             char **argv;

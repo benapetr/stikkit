@@ -107,10 +107,7 @@ bool TerminalParser::Parse()
         }
         if (!valid)
         {
-            if (!this->Silent)
-            {
-                cerr << "This parameter isn't valid: " << text << endl;
-            }
+            cerr << "This parameter isn't valid: " << text << endl;
             return true;
         }
         x++;
@@ -131,15 +128,15 @@ bool TerminalParser::ParseChar(char x)
         case 'p':
             Configuration::Private = true;
             return false;
+        case 's':
+            Configuration::NoExtras = true;
+            return false;
     }
     return false;
 }
 
 void TerminalParser::DisplayHelp()
 {
-    if (this->Silent)
-        return;
-
     cout << "Stikkit - open source pastebin uploader for Stikked\n\n"\
             "Parameters:\n"\
             "  -a <name>:       Specify author name by default the current\n"\
@@ -149,6 +146,7 @@ void TerminalParser::DisplayHelp()
             "  -v:              Increases verbosity\n"\
             "  -t <title>:      Set a title for a paste\n"\
             "  -p:              Mark a paste as private (not visible in recent pastes)\n"\
+            "  -s:              Display only RAW url of paste and no extra text\n"\
             "  -e <minutes>:    Set expiry in minutes, parameter needs to be a number\n"\
             "  --version:       Display a version\n"\
             "  -h | --help:     Display this help\n\n"\

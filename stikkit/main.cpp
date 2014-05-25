@@ -129,7 +129,10 @@ int main(int argc, char *argv[])
             cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
             return 12;
         }
-        cout << "Successfully pastebined to: " << readBuffer;
+        if (!Stikkit::Configuration::NoExtras)
+            cout << "Successfully pastebined to: " << readBuffer;
+        else
+            cout << readBuffer;
         curl_easy_cleanup(curl);
     } else
     {
