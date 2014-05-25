@@ -27,6 +27,7 @@ string Configuration::Author = "";
 string Configuration::Version = "1.0.4";
 string Configuration::Title = "";
 string Configuration::Home = "";
+bool Configuration::NoExtras = false;
 string Configuration::Input = "";
 string Configuration::DefaultURL = "";
 
