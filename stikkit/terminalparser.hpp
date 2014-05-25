@@ -1,10 +1,33 @@
-#ifndef TERMINALPARSER_HPP
-#define TERMINALPARSER_HPP
+//This program is free software: you can redistribute it and/or modify
+//it under the terms of the GNU General Public License as published by
+//the Free Software Foundation, either version 3 of the License, or
+//(at your option) any later version.
 
-class terminalparser
+//This program is distributed in the hope that it will be useful,
+//but WITHOUT ANY WARRANTY; without even the implied warranty of
+//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//GNU General Public License for more details.
+
+#ifndef TERMINALPARSER_H
+#define TERMINALPARSER_H
+
+#include <string>
+
+namespace Stikkit
 {
-    public:
-        terminalparser();
-};
+    //! Parses the data provided by user
+    class TerminalParser
+    {
+        public:
+            TerminalParser(int argc, char *argv[]);
+            bool Parse();
+            bool ParseChar(char x);
+            void DisplayHelp();
+            bool Silent;
+        private:
+            int argc;
+            char **argv;
+    };
+}
 
-#endif // TERMINALPARSER_HPP
+#endif // TERMINALPARSER_H

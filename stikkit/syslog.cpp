@@ -9,39 +9,36 @@
 //GNU General Public License for more details.
 
 #include <iostream>
-#include <QDateTime>
 #include "syslog.hpp"
 #include "configuration.hpp"
 
 using namespace Stikkit;
 
-void Syslog::Log(QString Message, StikkitLogType Type)
+void Syslog::Log(string Message, StikkitLogType Type)
 {
-    QString d = QDateTime::currentDateTime().toString();
-    QString message = d + "   " + Message;
     if (Type == StikkitLogType_Error)
     {
-        std::cerr << message.toStdString() << std::endl;
+        std::cerr << Message << std::endl;
     } else
     {
-        std::cout << message.toStdString() << std::endl;
+        std::cout << Message << std::endl;
     }
 }
 
-void Syslog::ErrorLog(QString Message)
+void Syslog::ErrorLog(string Message)
 {
     Syslog::Log("ERROR: " + Message, StikkitLogType_Error);
 }
 
-void Syslog::WarningLog(QString Message)
+void Syslog::WarningLog(string Message)
 {
     Syslog::Log("WARNING: " + Message, StikkitLogType_Warn);
 }
 
-void Syslog::DebugLog(QString Message, unsigned int Verbosity)
+void Syslog::DebugLog(string Message, unsigned int Verbosity)
 {
     if (Configuration::Verbosity >= Verbosity)
     {
-        Syslog::Log("DEBUG[" + QString::number(Verbosity) + "]: " + Message, StikkitLogType_Debug);
+        Syslog::Log("DEBUG: " + Message, StikkitLogType_Debug);
     }
 }

@@ -11,8 +11,7 @@
 #ifndef SYSLOG_HPP
 #define SYSLOG_HPP
 
-#include <QFile>
-#include <QStringList>
+#include <string>
 
 namespace Stikkit
 {
@@ -32,11 +31,11 @@ namespace Stikkit
             /*!
              * \param Message Message to log
              */
-            static void Log(QString Message, StikkitLogType Type = StikkitLogType_Normal);
-            static void ErrorLog(QString Message);
-            static void WarningLog(QString Message);
+            static void Log(std::string Message, StikkitLogType Type = StikkitLogType_Normal);
+            static void ErrorLog(std::string Message);
+            static void WarningLog(std::string Message);
             //! This log is only shown if verbosity is same or larger than requested verbosity
-            static void DebugLog(QString Message, unsigned int Verbosity = 1);
+            static void DebugLog(std::string Message, unsigned int Verbosity = 1);
     };
 }
 
