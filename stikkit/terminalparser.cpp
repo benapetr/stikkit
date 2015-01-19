@@ -147,7 +147,8 @@ void TerminalParser::DisplayHelp()
             "  -t <title>:      Set a title for a paste\n"\
             "  -p:              Mark a paste as private (not visible in recent pastes)\n"\
             "  -s:              Display only RAW url of paste and no extra text\n"\
-            "  -e <minutes>:    Set expiry in minutes, parameter needs to be a number\n"\
+            "  -e <minutes>:    Set expiry in minutes, parameter needs\n"\
+            "                   to be a number, default: unlimited time\n"\
             "  --version:       Display a version\n"\
             "  -h | --help:     Display this help\n\n"\
             "Note: every argument in [brackets] is optional\n"\
