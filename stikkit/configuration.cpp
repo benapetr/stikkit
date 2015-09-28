@@ -30,6 +30,7 @@ string Configuration::Home = "";
 bool Configuration::NoExtras = false;
 string Configuration::Input = "";
 string Configuration::DefaultURL = "";
+string Configuration::Apikey = "";
 
 void Configuration::Init()
 {
@@ -61,6 +62,36 @@ void Configuration::Init()
             Configuration::DefaultURL = line;
         }
         f.close();
+
+        //Apikey
+        ifstream fapi;
+        fapi.open(string(homedir + "/.stikkit/apikey").c_str());
+        string lineapi;
+        if(getline(fapi, lineapi))
+        {
+            Configuration::Apikey = lineapi;
+        }
+        fapi.close();
+
+        //expiry
+        ifstream fexp;
+        fexp.open(string(homedir + "/.stikkit/expiry").c_str());
+        string lineexp;
+        if(getline(fexp, lineexp))
+        {
+            Configuration::Expiry = lineexp;
+        }
+        fexp.close();
+
+        //author
+        ifstream fauth;
+        fauth.open(string(homedir + "/.stikkit/author").c_str());
+        string lineauth;
+        if(getline(fauth, lineauth))
+        {
+            Configuration::Author = lineauth;
+        }
+        fauth.close();
     }
     if (Configuration::Author.length() < 1)
     {

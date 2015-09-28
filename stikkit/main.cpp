@@ -103,6 +103,12 @@ int main(int argc, char *argv[])
         readBuffer.clear();
         string post = "text=";
         post += curl_easy_escape(curl, Stikkit::Configuration::Source.c_str(), Stikkit::Configuration::Source.length());
+        if (Stikkit::Configuration::Apikey.length() > 0)
+        {
+            Stikkit::Configuration::URL += "?apikey=";
+            Stikkit::Configuration::URL += curl_easy_escape(curl, Stikkit::Configuration::Apikey.c_str(), Stikkit::Configuration::Apikey.length());
+        }
+
         if (Stikkit::Configuration::Author.length() > 0)
         {
             post += "&name=";

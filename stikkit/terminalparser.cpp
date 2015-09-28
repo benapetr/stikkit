@@ -95,6 +95,17 @@ bool TerminalParser::Parse()
                         cerr << "Parameter -i requires an argument for it to work!" << endl;
                         return true;
                     }
+                } else if (text.at(0) == 'k')
+                {
+                    if (this->argc > x + 1 && !this->argv[x + 1][0] != '-')
+                    {
+                        x++;
+                        Configuration::Apikey = this->argv[x];
+                    } else
+                    {
+                        cerr << "Parameter -k requires an argument for it to work!" << endl;
+                        return true;
+                    }
                 }
                 text = text.substr(1);
             }
@@ -149,6 +160,7 @@ void TerminalParser::DisplayHelp()
             "  -s:              Display only RAW url of paste and no extra text\n"\
             "  -e <minutes>:    Set expiry in minutes, parameter needs\n"\
             "                   to be a number, default: unlimited time\n"\
+            "  -k <apikey>:     Set api key for current server\n"\
             "  --version:       Display a version\n"\
             "  -h | --help:     Display this help\n\n"\
             "Note: every argument in [brackets] is optional\n"\
