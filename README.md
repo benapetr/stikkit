@@ -50,6 +50,18 @@ url is an url to stikked server for example, if your server is http://something.
 
 The url parameter can be stored to configuration file (stikkit will ask you in case there is none in config file)
 
+Configuration
+=====
+
+The default configuration pulls the URL from /etc/stikkit/url - however, the better approach is to create your own config directory. The stikkit software will look for ".stikkit" in your home directory.
+
+Within this directory, there are a few key files worth creating.
+
+ - *url* - Contains your base installation URL for stikked
+ - *apikey* - If your stikked installation requires an API key, save it in here
+ - *expiry* - The default expiry time (in minutes) for a paste, if needed
+ - *author* - The default author name if you wish to use one
+
 Tips
 =====
 
