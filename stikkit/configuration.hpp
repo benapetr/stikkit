@@ -33,6 +33,7 @@ namespace Stikkit
             static string DefaultURL;
             static bool Private;
             static string Home;
+            static string Apikey;
             static bool NoExtras;
     };
 }
