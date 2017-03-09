@@ -106,6 +106,17 @@ bool TerminalParser::Parse()
                         cerr << "Parameter -k requires an argument for it to work!" << endl;
                         return true;
                     }
+                } else if (text.at(0) == 'l')
+                {
+                    if (this->argc > x + 1 && !this->argv[x + 1][0] != '-')
+                    {
+                        x++;
+                        Configuration::Lang = this->argv[x];
+                    } else
+                    {
+                        cerr << "Parameter -l requires an argument for it to work!" << endl;
+                        return true;
+                    }
                 }
                 text = text.substr(1);
             }
@@ -161,6 +172,7 @@ void TerminalParser::DisplayHelp()
             "  -e <minutes>:    Set expiry in minutes, parameter needs\n"\
             "                   to be a number, default: unlimited time\n"\
             "  -k <apikey>:     Set api key for current server\n"\
+            "  -l <lang>:       Set paste lang for syntax highlighting\n"\
             "  --version:       Display a version\n"\
             "  -h | --help:     Display this help\n\n"\
             "Note: every argument in [brackets] is optional\n"\
