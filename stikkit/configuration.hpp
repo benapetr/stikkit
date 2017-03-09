@@ -34,6 +34,7 @@ namespace Stikkit
             static bool Private;
             static string Home;
             static string Apikey;
+            static string Lang;
             static bool NoExtras;
     };
 }

@@ -109,6 +109,12 @@ int main(int argc, char *argv[])
             Stikkit::Configuration::URL += curl_easy_escape(curl, Stikkit::Configuration::Apikey.c_str(), Stikkit::Configuration::Apikey.length());
         }
 
+        if (Stikkit::Configuration::Lang.length() > 0)
+        {
+            post += "&lang=";
+            post += curl_easy_escape(curl, Stikkit::Configuration::Lang.c_str(), Stikkit::Configuration::Lang.length());
+        }
+
         if (Stikkit::Configuration::Author.length() > 0)
         {
             post += "&name=";

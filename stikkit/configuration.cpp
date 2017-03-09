@@ -31,6 +31,7 @@ bool Configuration::NoExtras = false;
 string Configuration::Input = "";
 string Configuration::DefaultURL = "";
 string Configuration::Apikey = "";
+string Configuration::Lang = "";
 
 void Configuration::Init()
 {
@@ -46,6 +47,17 @@ void Configuration::Init()
         if (getline(f, line))
         {
             Configuration::DefaultURL = line;
+        }
+        f.close();
+    }
+    if (stat("/etc/stikkit/apikey", &st) != -1)
+    {
+        ifstream f;
+        f.open("/etc/stikkit/apikey");
+        string line;
+        if (getline(f, line))
+        {
+            Configuration::Apikey = line;
         }
         f.close();
     }
@@ -72,6 +84,16 @@ void Configuration::Init()
             Configuration::Apikey = lineapi;
         }
         fapi.close();
+
+        //Lang
+        ifstream flang;
+        flang.open(string(homedir + "/.stikkit/lang").c_str());
+        string linelang;
+        if(getline(flang, linelang))
+        {
+            Configuration::Lang = linelang;
+        }
+        flang.close();
 
         //expiry
         ifstream fexp;
