@@ -39,6 +39,8 @@ NOTE: you need to have `libcurl-dev` installed in your system
 Usage
 =====
 
+See `stikkit --help` for detailed help about options.
+
 ```
 stikkit -b url
 # now type text and hit ctrl+d to exit
