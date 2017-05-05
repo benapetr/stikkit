@@ -114,6 +114,13 @@ void Configuration::Init()
             Configuration::Author = lineauth;
         }
         fauth.close();
+
+        //private
+        std::ifstream fpriv(homedir + "/.stikkit/private");
+        if(fpriv.good())
+        {
+            Configuration::Private = true;
+        }
     }
     if (Configuration::Author.length() < 1)
     {

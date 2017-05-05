@@ -61,6 +61,7 @@ Within this directory, there are a few key files worth creating.
  - *apikey* - If your stikked installation requires an API key, save it in here
  - *expiry* - The default expiry time (in minutes) for a paste, if needed
  - *author* - The default author name if you wish to use one
+ - *private* - If you want to mark the paste as private (not visible in recent pastes), create this empty file
 
 Tips
 =====
