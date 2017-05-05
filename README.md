@@ -31,10 +31,10 @@ Checkout this repository
 cd stikkit
 cmake .
 make
-make install
+sudo make install
 ```
 
-NOTE: you need to have libcurl-dev installed in your system
+NOTE: you need to have `libcurl-dev` installed in your system
 
 Usage
 =====
@@ -53,9 +53,9 @@ The url parameter can be stored to configuration file (stikkit will ask you in c
 Configuration
 =====
 
-The default configuration pulls the URL from /etc/stikkit/url - however, the better approach is to create your own config directory. The stikkit software will look for ".stikkit" in your home directory.
+The default configuration pulls the URL from `/etc/stikkit/url` - however, the better approach is to create your own config directory.
 
-Within this directory, there are a few key files worth creating.
+The stikkit software will look for `.stikkit` in your home directory. Within this directory, there are a few key files worth creating.
 
  - *url* - Contains your base installation URL for stikked
  - *apikey* - If your stikked installation requires an API key, save it in here
@@ -68,4 +68,4 @@ Tips
 
 Do you have a server and want to setup default pastebin site for all users in system?
 
-Create /etc/stikkit/url which contains the url of default pastebin site. Users will be able to override it, but by default everyone on system will use this
+Create `/etc/stikkit/url` which contains the url of default pastebin site. Users will be able to override it, but by default everyone on system will use this

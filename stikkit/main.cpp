@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post.c_str());
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "stikkit");
 
-        /* Perform the request, res will get the return code */
+        /* Perform the request, res will get the return HTTP code */
         res = curl_easy_perform(curl);
         /* Check for errors */
         if(res != CURLE_OK)
