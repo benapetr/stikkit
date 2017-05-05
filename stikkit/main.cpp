@@ -137,6 +137,7 @@ int main(int argc, char *argv[])
         /* Perform the request, res will get the return HTTP code */
         res = curl_easy_perform(curl);
         /* Check for errors */
+        cerr << "\n";
         if(res != CURLE_OK)
         {
             cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
