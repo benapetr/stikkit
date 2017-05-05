@@ -129,10 +129,12 @@ int main(int argc, char *argv[])
             post += "&private=1";
         if (Stikkit::Configuration::Expiry != "0")
             post += "&expire=" + Stikkit::Configuration::Expiry;
+        string useragent;
+        useragent = "Stikkit " + Stikkit::Configuration::Version + " (https://github.com/benapetr/stikkit/)";
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
         curl_easy_setopt(curl, CURLOPT_URL, Stikkit::Configuration::URL.c_str());
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post.c_str());
-        curl_easy_setopt(curl, CURLOPT_USERAGENT, "stikkit");
+        curl_easy_setopt(curl, CURLOPT_USERAGENT, useragent.c_str());
 
         /* Perform the request, res will get the return HTTP code */
         res = curl_easy_perform(curl);
